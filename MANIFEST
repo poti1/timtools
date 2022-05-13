@@ -1,9 +1,21 @@
 Build.PL
 Changes
+cpanfile
+ignore.txt
+lib/My/Array.pm
+lib/My/Color.pm
+lib/My/Opts.pm
+lib/My/Role/ColoredHelp.pm
 lib/TimTools.pm
+LICENSE
 MANIFEST			This list of files
+META.json
+META.yml
 README
+README.pod
 t/00-load.t
 t/manifest.t
 t/pod-coverage.t
 t/pod.t
+TODO
+xt/boilerplate.t
