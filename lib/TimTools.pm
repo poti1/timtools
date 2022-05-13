@@ -1,6 +1,6 @@
 package TimTools;
 
-use 5.30;
+use v5.30;
 use strict;
 use warnings;
 
@@ -10,11 +10,11 @@ TimTools - Some common functions.
 
 =head1 VERSION
 
-Version 0.03
+Version 0.04
 
 =cut
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 =head1 SYNOPSIS
 
