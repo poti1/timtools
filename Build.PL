@@ -1,3 +1,5 @@
+#!/bin/env perl
+
 use 5.006;
 use strict;
 use warnings;
@@ -21,6 +23,12 @@ my $builder = Module::Build->new(
         #'Foo::Bar::Module' => '5.0401',
     },
     add_to_cleanup     => [ 'TimTools-*' ],
+    meta_merge     => {
+        resources => {
+            bugtracker => 'https://github.com/poti1/timtools/issues',
+            repository => 'https://github.com/poti1/timtools',
+        },
+    },
 );
 
 $builder->create_build_script();

@@ -1,12 +1,14 @@
 Build.PL
 Changes
+cpanfile
+ignore.txt
 lib/My/Array.pm
 lib/My/Color.pm
 lib/My/Opts.pm
 lib/My/Role/ColoredHelp.pm
 lib/TimTools.pm
+LICENSE
 MANIFEST			This list of files
-MANIFEST.SKIP
 META.json
 META.yml
 README

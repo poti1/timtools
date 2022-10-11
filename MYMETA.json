@@ -1,0 +1,54 @@
+{
+   "abstract" : "Some common functions.",
+   "author" : [
+      "Tim Potapov <tim.potapov[AT]gmail.com>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Module::Build version 0.4231",
+   "license" : [
+      "artistic_2"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : 2
+   },
+   "name" : "TimTools",
+   "prereqs" : {
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0.4004"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "Test::More" : "0"
+         }
+      }
+   },
+   "provides" : {
+      "My::Array" : {
+         "file" : "lib/My/Array.pm"
+      },
+      "My::Color" : {
+         "file" : "lib/My/Color.pm"
+      },
+      "My::Opts" : {
+         "file" : "lib/My/Opts.pm"
+      },
+      "My::Role::ColoredHelp" : {
+         "file" : "lib/My/Role/ColoredHelp.pm"
+      },
+      "TimTools" : {
+         "file" : "lib/TimTools.pm",
+         "version" : "0.06"
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "license" : [
+         "http://opensource.org/licenses/artistic-license-2.0.php"
+      ]
+   },
+   "version" : "0.06",
+   "x_serialization_backend" : "JSON::PP version 4.06"
+}
