@@ -1,5 +1,3 @@
-#!/usr/bin/env perl
-
 package My::Array;
 
 use v5.32;

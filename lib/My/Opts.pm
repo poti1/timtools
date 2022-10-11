@@ -1,5 +1,3 @@
-#!/usr/bin/env perl
-
 package My::Opts;
 
 use FindBin qw( $RealBin );

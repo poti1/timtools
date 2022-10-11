@@ -1,8 +1,3 @@
-#!/usr/bin/env perlReturns an array of the lengths of
-#the longest strings per array.
-#
-#Nice for making evenly spaced out tables.
-
 package My::Role::ColoredHelp;
 
 use Mojo::Base -role;
