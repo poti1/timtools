@@ -45,9 +45,15 @@
    },
    "release_status" : "stable",
    "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/poti1/timtools/issues"
+      },
       "license" : [
          "http://opensource.org/licenses/artistic-license-2.0.php"
-      ]
+      ],
+      "repository" : {
+         "url" : "https://github.com/poti1/timtools"
+      }
    },
    "version" : "0.06",
    "x_serialization_backend" : "JSON::PP version 4.06"
