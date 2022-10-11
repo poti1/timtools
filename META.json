@@ -19,6 +19,11 @@
             "Module::Build" : "0.4004"
          }
       },
+      "runtime" : {
+         "requires" : {
+            "Mojolicious" : "9.27"
+         }
+      },
       "test" : {
          "requires" : {
             "Test::More" : "0"
