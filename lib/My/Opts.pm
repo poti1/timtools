@@ -5,8 +5,9 @@ use lib "$RealBin/lib";
 
 use v5.32;
 use Mojo::Base -strict;
-use Getopt::Long qw( GetOptions );
-use Mojo::Util   qw( dumper );
+use File::Basename  qw(basename);
+use Getopt::Long    qw( GetOptions );
+use Mojo::Util      qw( dumper );
 use My::Array();
 
 =head2 new
@@ -14,12 +15,14 @@ use My::Array();
 Input:
    [
       {
-         desc => "Option1",
-         spec => "opt1=s",
+         desc     => "Option1",
+         spec     => "opt1=s",
       },
       {
-         desc => "Option2",
-         spec => "opt2=s",
+         desc     => "Option2",
+         spec     => "opt2=s",
+         required => 1,
+         default  => 123,
       },
    ]
 
@@ -49,6 +52,34 @@ sub _init {
     $s->_parse();
 
     GetOptions( $s, $s->{_opts_spec}->@* ) or die "\n[$!]\n";
+
+    # Check required options.
+    my @missing_required =
+      map  { $_->{key} }
+      grep { not defined $s->{$_->{key}} }
+      grep { $_->{_spec}{required} } $s->{_parsed}->@*;
+    if ( @missing_required ) {
+        local $" = "', '";
+        say "";
+        say $s->colored_msg(
+            "ERROR: Missing required parameter(s): '@missing_required'" );
+        say "";
+        exit 1;
+    }
+
+    # Set Defaults.
+    my @key_default =
+      map  { [
+          $_->{key},
+          $_->{_spec}{default},
+      ] }
+      grep { not defined $s->{$_->{key}} }
+      grep { $_->{_spec}{default} } $s->{_parsed}->@*;
+
+    for (@key_default) {
+        my ($key,$default) = @$_;
+        $s->{$key} = $default;
+    }
 
     $s->debug()        if $s->{debug};
     $s->list_options() if $s->{list_options};
@@ -169,6 +200,21 @@ sub _expand_arg {
 sub _make_format {
     my ( $s, $max ) = @_;
     join " # ", map { "%-${_}s" } @$max;
+}
+
+=head2 colored_msg
+
+Returned a colored message.
+
+=cut
+
+sub colored_msg {
+    my ( $s, $msg, $script_path ) = @_;
+    my $script = basename($script_path // $0);
+
+    package My { use Mojo::Base -base };
+    my $my = My->with_roles( "+ColoredHelp" )->new;
+    $my->color_msg( $msg, $script );
 }
 
 1;
