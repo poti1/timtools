@@ -73,6 +73,7 @@ sub __parse {
         my $opt_desc = $_->{desc};
         my @opt_list = split /\|/, $opt_spec;
         my $arg      = $1 if $opt_list[-1] =~ s/ (\W+.*) //x;
+        my $key      = $opt_list[0];
 
         for ( @opt_list ) {
             s/ (?=^\w{2,}) /--/x;    # Long options.
@@ -80,11 +81,12 @@ sub __parse {
         }
 
         {
-            key  => $_,
-            spec => $opt_spec,
-            list => \@opt_list,
-            arg  => $arg      // "",
-            desc => $opt_desc // "...",
+            _spec => $_,
+            key   => $key,
+            spec  => $opt_spec,
+            list  => \@opt_list,
+            arg   => $arg      // "",
+            desc  => $opt_desc // "...",
         };
 
     } $s->{_spec}->@*;
