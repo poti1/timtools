@@ -8,13 +8,9 @@ use warnings;
 
 TimTools - Some common functions.
 
-=head1 VERSION
-
-Version 0.08
-
 =cut
 
-our $VERSION = '0.08';
+our $VERSION = '0.09';
 
 =head1 SYNOPSIS
 
